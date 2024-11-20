@@ -4,13 +4,48 @@
     box-sizing: border-box;
 }
 
-.grid-container {
-    border: 1px solid red;
-    display: grid;
-    grid-template-columns: repeat(3, 50px);
-    grid-template-rows: repeat(3, 50px);
+html {
+    height: 100vh;
+    width: 100vw;
+}
 
-    .cell {
-        border: 1px solid blue;
+body {
+    height: 100%;
+    width: 100%;
+}
+
+main {
+    border: 1px solid green;
+}
+
+.game-logs {
+    border: 2px solid gold;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+
+    button {
+        padding: 8px;
     }
 }
+
+#board {
+
+    .grid-container {
+        margin: auto;
+        display: grid;
+        width: min-content;
+        grid-template-columns: repeat(3, 50px);
+        grid-template-rows: repeat(3, 50px);
+    
+        .cell {
+            border: 1px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+

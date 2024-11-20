@@ -1,4 +1,4 @@
-const readline = require('readline-sync');
+// const readline = require('readline-sync');
 
 function players() {
     //create players
@@ -176,9 +176,9 @@ function gameboard() {
         // const move = getMove()
         // let move = getPlayerMove()
         let move = getMove()
-        console.log('move to, value of cell');
-        console.log(move);
-        console.log(board[move.row][move.col].getValue());
+        // console.log('move to, value of cell');
+        // console.log(move);
+        // console.log(board[move.row][move.col].getValue());
 
         if (board[move.row][move.col].getValue()) {
             // move = getPlayerMove()
@@ -241,7 +241,41 @@ function gameboard() {
 
     }
 
+    const displayUI = () => {
+        const boardUI = document.querySelector('.grid-container')
 
+        for (let i = 0; i < 3; i++) {
+            // const element = board[i];
+            // console.log(element);
+
+            for (let j = 0; j < 3; j++) {
+                let element = document.createElement('div')
+                element.setAttribute('data-row', i)
+                element.setAttribute('data-col', j)
+                element.className = 'cell'
+                boardUI.appendChild(element)
+                element.addEventListener('click', (e) => {
+                    displayCellText(e.target)
+                    
+                })
+            } 
+        }
+
+        const displayCellText = (el) => {
+            const row = parseInt(el.getAttribute('data-row'))
+            const col = parseInt(el.getAttribute('data-col'))
+            el.textContent = board[row][col].getValue()
+            
+        }
+
+        function click(el) {
+            el.addEventListener('click', (e) => {
+
+            })
+        }
+    }
+
+    displayUI()
     game()
 
 }

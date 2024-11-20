@@ -44,12 +44,8 @@ function gameboard() {
     const rows = 3
     const cols = 3
 
-    for (let i = 0; i < rows; i++) {
-        board[i] = []
-
-        for (let j = 0; j < cols; j++) {
-            board[i].push(cell());
-        }
+    for (let i = 0; i < 9; i++) {
+        board.push(cell())
     }
 
     const getBoard = () => board;
@@ -68,15 +64,31 @@ function gameboard() {
 
 function displayUI() {
     //get cells
-
+    const cells = document.querySelectorAll('.cell')
     //link ui and code
+    return Array.from(cells)
 }
+
+displayUI()
 
 //GAME
 function Game() {
     let board = gameboard()
     let players = getPlayers()
+    let cells = displayUI()
 
+    // const [[a,b,c], [d,e,f], [g,h,i]] = cells
+
+    // console.log(cells);
+    // console.log(board.getBoard());
+    
+    for (let i = 0; i < cells.length; i++) {
+        let element = cells[i]
+        console.log(board.getBoard()[i].getValue());
+        const text = document.createElement('p')
+        text.textContent = board.getBoard()[i].getValue()
+        element.appendChild(text)
+    }
 
     function playRound() {
         const row = Math.floor(Math.random() * 3);
@@ -97,3 +109,5 @@ function Game() {
 Game()
 
 // const gameboard = Gameboard()
+
+
